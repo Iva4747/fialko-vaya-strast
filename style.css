@@ -56,13 +56,12 @@ body {
 .tab.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ===== Общие keyframes для дышащих фонов ===== */
+/* ===== Общие keyframes ===== */
 @keyframes gradientBreath {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
 @keyframes floatBlob {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33%      { transform: translate(30px, -20px) scale(1.1); }
@@ -72,7 +71,17 @@ body {
 /* ===== HERO ===== */
 .hero {
   padding: 60px 0 80px;
-  background: linear-gradient(135deg, #fdfaff, #f5eef8px; left: -100px; border-radius: 50%;
+  background: linear-gradient(135deg, #fdfaff, #f5eef8);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(155,89,182,0.08), transparent 70%);
+  top: -100px; left: -100px;
+  border-radius: 50%;
   animation: floatBlob 25s ease-in-out infinite reverse;
   pointer-events: none;
 }
@@ -107,9 +116,7 @@ body {
   box-shadow: 0 8px 24px rgba(155, 89, 182, 0.3);
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(155, 89, 182, 0.4); }
-.btn-ghost {
-  background: white; color: var(--text); border: 1.5px solid var(--border);
-}
+.btn-ghost { background: white; color: var(--text); border: 1.5px solid var(--border); }
 .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
 
 .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
@@ -117,14 +124,7 @@ body {
 .stat span { font-size: 13px; color: var(--text-soft); }
 
 /* ===== Hero image (Bubble) ===== */
-.hero-img {
-  position: relative;
-  height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+.hero-img { position: relative; height: 520px; display: flex; align-items: center; justify-content: center; }
 .bubble-bg {
   position: absolute;
   width: 420px; height: 420px; border-radius: 50%;
@@ -133,14 +133,11 @@ body {
   animation: pulse 6s ease-in-out infinite;
   z-index: 0;
 }
-
 .bubble {
   position: relative;
   width: 380px; height: 380px;
   border-radius: 50%;
-  overflow: hidden;
-  z-index: 2;
-  cursor: pointer;
+  overflow: hidden; z-index: 2; cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow:
     0 25px 70px rgba(155, 89, 182, 0.3),
@@ -148,21 +145,15 @@ body {
     inset 0 0 0 8px rgba(155,89,182,0.15);
   animation: floatMain 7s ease-in-out infinite;
 }
-.bubble img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s;
-}
+.bubble img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .bubble:hover { transform: scale(1.04); }
 .bubble:hover img { transform: scale(1.1); }
 .bubble-fallback {
-  font-size: 100px;
-  display: none;
+  font-size: 100px; display: none;
   align-items: center; justify-content: center;
   width: 100%; height: 100%;
   background: linear-gradient(135deg, #f5eef8, #fce7f3);
 }
-
 @keyframes floatMain {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
@@ -173,9 +164,7 @@ body {
 }
 
 .petal {
-  position: absolute;
-  font-size: 32px;
-  z-index: 1;
+  position: absolute; font-size: 32px; z-index: 1;
   animation: floatPetal 5s ease-in-out infinite;
   pointer-events: none;
 }
@@ -201,7 +190,7 @@ body {
 .feature-card h3 { font-family: 'Unbounded', sans-serif; font-size: 18px; margin-bottom: 8px; }
 .feature-card p { color: var(--text-soft); font-size: 14px; }
 
-/* ===== Sections (с дышащим фоном) ===== */
+/* ===== Sections ===== */
 section {
   padding: 80px 0;
   position: relative;
@@ -230,23 +219,14 @@ section::after {
   animation: floatBlob 30s ease-in-out infinite reverse;
   pointer-events: none;
 }
-section > .container {
-  position: relative;
-  z-index: 1;
-}
+section > .container { position: relative; z-index: 1; }
 
-.section-title {
-  font-family: 'Unbounded', sans-serif; font-size: 36px;
-  text-align: center; margin-bottom: 12px;
-}
+.section-title { font-family: 'Unbounded', sans-serif; font-size: 36px; text-align: center; margin-bottom: 12px; }
 .section-sub { text-align: center; color: var(--text-soft); margin-bottom: 48px; }
 .mt-80 { margin-top: 100px; }
 
-/* ===== Grid (фиалки) ===== */
-.grid {
-  display: grid; gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
+/* ===== Grid ===== */
+.grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .card {
   background: var(--card); border-radius: 20px; overflow: hidden;
   box-shadow: var(--shadow); transition: all 0.3s; cursor: pointer;
@@ -262,12 +242,11 @@ section > .container {
 }
 .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
 .card-name { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-.card-desc { font-size: 13px; color: var(--text-soft); line-height: 1.5; flex: 1; margin-bottom: 14px;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.card-price {
-  font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px;
-  color: var(--primary);
+.card-desc {
+  font-size: 13px; color: var(--text-soft); line-height: 1.5; flex: 1; margin-bottom: 14px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
+.card-price { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px; color: var(--primary); }
 .card-price.soon {
   font-size: 12px; font-weight: 600;
   color: var(--text-soft); font-family: 'Inter', sans-serif;
@@ -291,10 +270,7 @@ section > .container {
 .kid-item:hover { border-color: var(--primary); transform: translateX(4px); }
 
 /* ===== Articles ===== */
-.articles-grid {
-  display: grid; gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-}
+.articles-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
 .article-card {
   background: var(--card); border-radius: 20px; padding: 28px;
   box-shadow: var(--shadow); cursor: pointer; transition: all 0.3s;
@@ -313,10 +289,7 @@ section > .container {
 .article-more { color: var(--primary); font-weight: 600; font-size: 14px; }
 
 /* ===== Contacts ===== */
-.contacts-grid {
-  display: grid; gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
+.contacts-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .contact-card {
   background: var(--card); padding: 28px; border-radius: 20px;
   text-align: center; box-shadow: var(--shadow);
@@ -353,11 +326,7 @@ section > .container {
 .modal-close:hover { background: var(--primary); color: white; }
 .modal h2 { font-family: 'Unbounded', sans-serif; font-size: 26px; margin-bottom: 16px; padding-right: 40px; }
 .modal-text { white-space: pre-line; color: var(--text-soft); font-size: 15px; line-height: 1.7; }
-.modal-img {
-  width: 100%; border-radius: 16px;
-  margin-bottom: 20px; max-height: 480px;
-  object-fit: cover; display: block;
-}
+.modal-img { width: 100%; border-radius: 16px; margin-bottom: 20px; max-height: 480px; object-fit: cover; display: block; }
 .modal-gallery { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
 .modal-gallery img {
   width: 100%; border-radius: 16px;
@@ -401,11 +370,9 @@ section > .container {
   .hero p { margin: 0 auto 32px; }
   .hero-btns { justify-content: center; }
   .hero-stats { justify-content: center; }
-
   .hero-img { height: 380px; }
   .bubble { width: 280px; height: 280px; }
   .bubble-bg { width: 320px; height: 320px; }
-
   .features { grid-template-columns: 1fr; }
   .contact-card.wide { grid-column: span 1; }
 }
