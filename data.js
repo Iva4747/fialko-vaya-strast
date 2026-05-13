@@ -74,7 +74,7 @@ const violets = [
   },
   {
     name: "Rob's Monkeyshines",
-    img: "images/Rob's_Monkeyshines.jpg",
+    img: "images/Robs_Monkeyshines.jpg",
     desc: "Шапочка изумительных крупных фуксиевых цветов, разрисованных обильным синим фэнтези с белыми штрихами. Полумини. Спорт.",
     price: "150 ₽"
   },
