@@ -382,3 +382,49 @@ section > .container { position: relative; z-index: 1; }
   .bubble { width: 240px; height: 240px; }
   .petal { display: none; }
 }
+/* ===== Адаптивность для телефонов (исправляем вид) ===== */
+@media (max-width: 600px) {
+  /* 1. Исправляем логотип и меню */
+  .logo {
+    font-size: 16px; /* Уменьшаем шрифт */
+    max-width: 140px; /* Ограничиваем ширину, чтобы не ломалась строка */
+    line-height: 1.2;
+    white-space: normal; /* Разрешаем перенос, но красиво */
+  }
+  
+  .nav-wrap {
+    height: 60px; /* Чуть уменьшаем высоту шапки */
+    gap: 8px; /* Добавляем отступ между логотипом и меню */
+  }
+  
+  .nav-link {
+    padding: 6px 10px; /* Уменьшаем отступы кнопок меню */
+    font-size: 13px;   /* Уменьшаем шрифт меню */
+  }
+
+  /* 2. Исправляем карточки (Статьи и Контакты) */
+  .article-card, .contact-card, .feature-card {
+    padding: 20px !important; /* Добавляем воздух внутрь карточек */
+    margin-bottom: 12px;
+  }
+  
+  /* 3. Исправляем заголовки (чтобы слова не ломались уродливо) */
+  .article-card h3 {
+    font-size: 18px;
+    word-break: break-word; /* Разрешаем перенос слов, но аккуратно */
+  }
+
+  /* 4. Убираем лишние отступы в контейнерах */
+  .container {
+    padding: 0 16px; /* Чуть уменьшаем отступы по бокам экрана */
+  }
+
+  /* 5. Сетка контактов и статей */
+  .articles-grid, .grid, .contacts-grid {
+    grid-template-columns: 1fr; /* Всё в одну колонку */
+    gap: 16px; /* Отступ между карточками */
+  }
+
+  /* 6. Скрываем лишние декорации на телефоне, если они мешают */
+  .petal { display: none; }
+}
