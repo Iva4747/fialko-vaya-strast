@@ -550,3 +550,162 @@ section > .container { position: relative; z-index: 1; }
     margin: 0 auto !important;
   }
 }
+/* ===== ЖЁСТКОЕ ЦЕНТРИРОВАНИЕ ДЛЯ ТЕЛЕФОНА (ПОСЛЕДНЯЯ ИНСТАНЦИЯ) ===== */
+@media (max-width: 600px) {
+  
+  /* 1. Центрируем весь Hero-блок */
+  .hero-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* 2. Текст (заголовок, абзац) — строго по центру */
+  .hero-text, .hero h1, .hero p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Кнопки — широкие, но по центру */
+  .hero-btns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    max-width: 340px !important; /* Оптимальная ширина для пальца */
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  /* 4. Цифры (20+, 33, 16) — сеткой по центру */
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 20px auto !important;
+    justify-items: center !important; /* Центрируем содержимое ячеек */
+  }
+
+  .hero-stats .stat:last-child {
+    grid-column: 1 / -1 !important; /* 16 на всю ширину */
+    text-align: center !important;
+  }
+
+  .stat b, .stat span {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  /* 5. Картинка (круг с цветами) — по центру */
+  .hero-img {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 30px auto 0 !important;
+  }
+
+  .bubble {
+    margin: 0 auto !important;
+  }
+
+  /* 6. Логотип — тоже по центру или слева (на ваше усмотрение) */
+  .nav-wrap {
+    justify-content: space-between !important;
+  }
+  
+  .logo {
+    text-align: left !important; /* Логотип оставляем слева */
+  }
+}/* ===== ЖЁСТКОЕ ЦЕНТРИРОВАНИЕ ДЛЯ ТЕЛЕФОНА (ПОСЛЕДНЯЯ ИНСТАНЦИЯ) ===== */
+@media (max-width: 600px) {
+  
+  /* 1. Центрируем весь Hero-блок */
+  .hero-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* 2. Текст (заголовок, абзац) — строго по центру */
+  .hero-text, .hero h1, .hero p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Кнопки — широкие, но по центру */
+  .hero-btns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    max-width: 340px !important; /* Оптимальная ширина для пальца */
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  /* 4. Цифры (20+, 33, 16) — сеткой по центру */
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 20px auto !important;
+    justify-items: center !important; /* Центрируем содержимое ячеек */
+  }
+
+  .hero-stats .stat:last-child {
+    grid-column: 1 / -1 !important; /* 16 на всю ширину */
+    text-align: center !important;
+  }
+
+  .stat b, .stat span {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  /* 5. Картинка (круг с цветами) — по центру */
+  .hero-img {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 30px auto 0 !important;
+  }
+
+  .bubble {
+    margin: 0 auto !important;
+  }
+
+  /* 6. Логотип — тоже по центру или слева (на ваше усмотрение) */
+  .nav-wrap {
+    justify-content: space-between !important;
+  }
+  
+  .logo {
+    text-align: left !important; /* Логотип оставляем слева */
+  }
+}
