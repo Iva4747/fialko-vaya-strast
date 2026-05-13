@@ -428,3 +428,68 @@ section > .container { position: relative; z-index: 1; }
   /* 6. Скрываем лишние декорации на телефоне, если они мешают */
   .petal { display: none; }
 }
+/* ===== ИСПРАВЛЕНИЕ ДЛЯ ТЕЛЕФОНА: растягиваем контент ===== */
+@media (max-width: 600px) {
+  
+  /* 1. Заставляем контейнер занимать всю ширину */
+  .container {
+    width: 100% !important;       /* Принудительно 100% ширины */
+    max-width: 100% !important;   /* Убираем ограничение в 1200px */
+    padding-left: 20px !important;  /* Добавляем отступ слева */
+    padding-right: 20px !important; /* Добавляем отступ справа */
+    box-sizing: border-box !important; /* Чтобы padding не ломал ширину */
+  }
+
+  /* 2. Исправляем Hero-блок (главный баннер) */
+  .hero-inner {
+    display: flex;
+    flex-direction: column;  /* Элементы друг под другом */
+    align-items: stretch;    /* Растягиваем на всю ширину */
+    width: 100%;
+    padding: 0;              /* Убираем лишние отступы */
+  }
+
+  .hero-text {
+    width: 100%;             /* Текст на всю ширину */
+    padding: 0;
+  }
+
+  .hero-img {
+    width: 100%;             /* Картинка на всю ширину */
+    display: flex;
+    justify-content: center; /* Центрируем круг с цветами */
+    margin-top: 20px;
+  }
+
+  .bubble {
+    width: 260px;            /* Размер круга на телефоне */
+    height: 260px;
+  }
+
+  /* 3. Исправляем кнопки */
+  .hero-btns {
+    display: flex;
+    flex-direction: column;  /* Кнопки друг под другом */
+    align-items: stretch;    /* Растягиваем на всю ширину */
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .btn {
+    text-align: center;      /* Текст кнопки по центру */
+    width: 100%;             /* Кнопка на всю ширину */
+  }
+
+  /* 4. Исправляем цифры (20+, 33, 16) */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки для цифр */
+    gap: 16px;
+    width: 100%;
+    margin: 20px 0;
+  }
+  .hero-stats .stat:last-child {
+    grid-column: 1 / -1;     /* Третья цифра (16) на всю ширину */
+    text-align: center;
+  }
+}
