@@ -493,3 +493,60 @@ section > .container { position: relative; z-index: 1; }
     text-align: center;
   }
 }
+/* ===== ФИНАЛЬНОЕ ВЫРАВНИВАНИЕ ДЛЯ ТЕЛЕФОНА ===== */
+@media (max-width: 600px) {
+  
+  /* Заставляем весь контент внутри hero быть по центру */
+  .hero-text, .hero-stats, .hero-btns {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* Выравниваем заголовок и абзац */
+  .hero h1, .hero p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Цифры (20+, 33, 16) — тоже по центру */
+  .hero-stats {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px;
+  }
+
+  .stat {
+    text-align: center !important;
+  }
+
+  /* Картинка (круг с цветами) — по центру */
+  .hero-img {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 20px auto !important;
+  }
+
+  .bubble {
+    margin: 0 auto !important; /* Центрируем сам круг */
+  }
+
+  /* Кнопки — по центру и на всю ширину */
+  .hero-btns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    max-width: 320px !important; /* Оптимальная ширина кнопки */
+    margin: 0 auto !important;
+  }
+}
