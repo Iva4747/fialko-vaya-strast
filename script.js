@@ -1,5 +1,4 @@
 // ===== Вспомогательные функции =====
-
 function isComingSoon(item) {
   return item.price === 0 && item.desc?.trim().toLowerCase().startsWith('скоро');
 }
@@ -134,9 +133,20 @@ if (articlesGrid) {
 }
 
 function openArticle(a) {
+  // 🌸 НОВОЕ: формируем галерею, если в статье есть фото
+  const galleryHTML = (a.images && a.images.length)
+    ? `<div class="modal-gallery">
+         ${a.images.map(src => `
+           <img src="${src}" alt="${a.title}"
+                onerror="this.style.display='none'">
+         `).join('')}
+       </div>`
+    : '';
+
   openModal(`
     <span class="article-tag">📖 ${a.tag || 'Статья'}</span>
     <h2>${a.title}</h2>
+    ${galleryHTML}
     <div class="modal-text">${(a.text || '').replace(/\n/g, '<br>')}</div>
   `);
 }
