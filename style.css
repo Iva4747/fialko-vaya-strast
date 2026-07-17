@@ -1,50 +1,55 @@
+/* ===== RESET & BASE ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
-  --bg: #fdfaff;
-  --bg-soft: #f5eef8;
-  --primary: #9b59b6;
-  --primary-dark: #7a3f96;
-  --accent: #e91e87;
-  --text: #2d2438;
-  --text-soft: #6b5b7d;
-  --border: #ebe0f0;
-  --card: #ffffff;
-  --shadow: 0 10px 40px rgba(155, 89, 182, 0.08);
-  --shadow-hover: 0 20px 60px rgba(155, 89, 182, 0.18);
+    --bg: #fdfaff;
+    --bg-soft: #f5eef8;
+    --primary: #9b59b6;
+    --primary-dark: #7a3f96;
+    --accent: #e91e87;
+    --text: #2d2438;
+    --text-soft: #6b5b7d;
+    --border: #ebe0f0;
+    --card: #ffffff;
+    --shadow: 0 10px 40px rgba(155, 89, 182, 0.08);
+    --shadow-hover: 0 20px 60px rgba(155, 89, 182, 0.18);
+    
+    /* Шрифты */
+    --font-heading: 'Unbounded', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
-
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; height: auto; display: block; }
 
 /* ===== HEADER ===== */
 .header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(253, 250, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253, 250, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
 }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .logo {
-  font-family: 'Unbounded', sans-serif;
-  font-weight: 800; font-size: 20px;
-  color: var(--text); text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 800; font-size: 20px;
+    color: var(--text); text-decoration: none;
 }
 .logo span { color: var(--primary); }
 .nav { display: flex; gap: 8px; }
 .nav-link {
-  text-decoration: none; color: var(--text-soft);
-  padding: 10px 18px; border-radius: 12px;
-  font-weight: 500; font-size: 15px;
-  transition: all 0.25s;
+    text-decoration: none; color: var(--text-soft);
+    padding: 10px 18px; border-radius: 12px;
+    font-weight: 500; font-size: 15px;
+    transition: all 0.25s;
 }
 .nav-link:hover { color: var(--primary); background: var(--bg-soft); }
 .nav-link.active { color: white; background: var(--primary); }
@@ -58,213 +63,220 @@ body {
 
 /* ===== Общие keyframes ===== */
 @keyframes gradientBreath {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 @keyframes floatBlob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(30px, -20px) scale(1.1); }
-  66%      { transform: translate(-20px, 30px) scale(0.95); }
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(30px, -20px) scale(1.1); }
+    66%      { transform: translate(-20px, 30px) scale(0.95); }
 }
 
 /* ===== HERO ===== */
 .hero {
-  padding: 60px 0 80px;
-  background: linear-gradient(135deg, #fdfaff, #f5eef8);
-  position: relative;
-  overflow: hidden;
+    padding: 60px 0 80px;
+    background: linear-gradient(135deg, #fdfaff, #f5eef8);
+    position: relative;
+    overflow: hidden;
 }
 .hero::before {
-  content: '';
-  position: absolute;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(155,89,182,0.08), transparent 70%);
-  top: -100px; left: -100px;
-  border-radius: 50%;
-  animation: floatBlob 25s ease-in-out infinite reverse;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(155,89,182,0.08), transparent 70%);
+    top: -100px; left: -100px;
+    border-radius: 50%;
+    animation: floatBlob 25s ease-in-out infinite reverse;
+    pointer-events: none;
 }
-
 .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
 .badge {
-  display: inline-block; padding: 8px 16px;
-  background: rgba(155, 89, 182, 0.1); color: var(--primary);
-  border-radius: 100px; font-size: 13px; font-weight: 600;
-  margin-bottom: 24px;
+    display: inline-block; padding: 8px 16px;
+    background: rgba(155, 89, 182, 0.1); color: var(--primary);
+    border-radius: 100px; font-size: 13px; font-weight: 600;
+    margin-bottom: 24px;
 }
 .hero h1 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800; line-height: 1.1; margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800; line-height: 1.15; margin-bottom: 20px;
+    letter-spacing: -0.02em;
 }
 .grad {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+    background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+}
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
 }
 .hero p { font-size: 18px; color: var(--text-soft); margin-bottom: 32px; max-width: 480px; }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
 .btn {
-  display: inline-block; padding: 14px 28px;
-  border-radius: 14px; font-weight: 600; font-size: 15px;
-  text-decoration: none; cursor: pointer; border: none;
-  transition: all 0.25s;
+    display: inline-block; padding: 16px 32px;
+    border-radius: 16px; font-weight: 600; font-size: 15px;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.02em;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--accent)); color: white;
-  box-shadow: 0 8px 24px rgba(155, 89, 182, 0.3);
+    background: linear-gradient(135deg, var(--primary), var(--accent)); color: white;
+    box-shadow: 0 8px 24px rgba(155, 89, 182, 0.3);
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(155, 89, 182, 0.4); }
 .btn-ghost { background: white; color: var(--text); border: 1.5px solid var(--border); }
 .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
-
 .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
-.stat b { display: block; font-family: 'Unbounded', sans-serif; font-size: 28px; color: var(--primary); }
+.stat b { display: block; font-family: var(--font-heading); font-size: 28px; color: var(--primary); }
 .stat span { font-size: 13px; color: var(--text-soft); }
 
 /* ===== Hero image (Bubble) ===== */
 .hero-img { position: relative; height: 520px; display: flex; align-items: center; justify-content: center; }
 .bubble-bg {
-  position: absolute;
-  width: 420px; height: 420px; border-radius: 50%;
-  background: linear-gradient(135deg, rgba(155,89,182,0.18), rgba(233,30,135,0.14));
-  filter: blur(50px);
-  animation: pulse 6s ease-in-out infinite;
-  z-index: 0;
+    position: absolute;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(155,89,182,0.18), rgba(233,30,135,0.14));
+    filter: blur(50px);
+    animation: pulse 6s ease-in-out infinite;
+    z-index: 0;
 }
 .bubble {
-  position: relative;
-  width: 380px; height: 380px;
-  border-radius: 50%;
-  overflow: hidden; z-index: 2; cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow:
-    0 25px 70px rgba(155, 89, 182, 0.3),
-    inset 0 0 0 6px rgba(255,255,255,0.7),
-    inset 0 0 0 8px rgba(155,89,182,0.15);
-  animation: floatMain 7s ease-in-out infinite;
+    position: relative;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    overflow: hidden; z-index: 2; cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow:
+        0 25px 70px rgba(155, 89, 182, 0.3),
+        inset 0 0 0 6px rgba(255,255,255,0.7),
+        inset 0 0 0 8px rgba(155,89,182,0.15);
+    animation: floatMain 7s ease-in-out infinite;
 }
 .bubble img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .bubble:hover { transform: scale(1.04); }
 .bubble:hover img { transform: scale(1.1); }
 .bubble-fallback {
-  font-size: 100px; display: none;
-  align-items: center; justify-content: center;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #f5eef8, #fce7f3);
+    font-size: 100px; display: none;
+    align-items: center; justify-content: center;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f5eef8, #fce7f3);
 }
 @keyframes floatMain {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.08); opacity: 1; }
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.08); opacity: 1; }
 }
-
 .petal {
-  position: absolute; font-size: 32px; z-index: 1;
-  animation: floatPetal 5s ease-in-out infinite;
-  pointer-events: none;
+    position: absolute; font-size: 32px; z-index: 1;
+    animation: floatPetal 5s ease-in-out infinite;
+    pointer-events: none;
 }
 .petal-1 { top: 15%; left: 8%; }
 .petal-2 { bottom: 15%; right: 8%; animation-delay: 1.5s; font-size: 24px; }
 @keyframes floatPetal {
-  0%, 100% { transform: translateY(0) rotate(0); opacity: 0.7; }
-  50% { transform: translateY(-20px) rotate(15deg); opacity: 1; }
+    0%, 100% { transform: translateY(0) rotate(0); opacity: 0.7; }
+    50% { transform: translateY(-20px) rotate(15deg); opacity: 1; }
 }
 
 /* ===== Features ===== */
 .features {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  margin-top: -40px; position: relative; z-index: 2;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: -40px; position: relative; z-index: 2;
 }
 .feature-card {
-  background: var(--card); padding: 32px 28px;
-  border-radius: 20px; box-shadow: var(--shadow);
-  transition: all 0.3s;
+    background: var(--card); padding: 32px 28px;
+    border-radius: 20px; box-shadow: var(--shadow);
+    transition: all 0.3s;
 }
 .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
 .f-icon { font-size: 36px; margin-bottom: 16px; }
-.feature-card h3 { font-family: 'Unbounded', sans-serif; font-size: 18px; margin-bottom: 8px; }
+.feature-card h3 { font-family: var(--font-heading); font-size: 18px; margin-bottom: 8px; }
 .feature-card p { color: var(--text-soft); font-size: 14px; }
 
 /* ===== Sections ===== */
 section {
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #fdfaff, #f8f0fb, #fce7f3, #f5eef8, #fdfaff);
-  background-size: 400% 400%;
-  animation: gradientBreath 24s ease infinite;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fdfaff, #f8f0fb, #fce7f3, #f5eef8, #fdfaff);
+    background-size: 400% 400%;
+    animation: gradientBreath 24s ease infinite;
 }
 section::before {
-  content: '';
-  position: absolute;
-  width: 450px; height: 450px;
-  background: radial-gradient(circle, rgba(155,89,182,0.05), transparent 70%);
-  top: -150px; right: -100px;
-  border-radius: 50%;
-  animation: floatBlob 26s ease-in-out infinite;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(155,89,182,0.05), transparent 70%);
+    top: -150px; right: -100px;
+    border-radius: 50%;
+    animation: floatBlob 26s ease-in-out infinite;
+    pointer-events: none;
 }
 section::after {
-  content: '';
-  position: absolute;
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, rgba(233,30,135,0.04), transparent 70%);
-  bottom: -120px; left: -80px;
-  border-radius: 50%;
-  animation: floatBlob 30s ease-in-out infinite reverse;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(233,30,135,0.04), transparent 70%);
+    bottom: -120px; left: -80px;
+    border-radius: 50%;
+    animation: floatBlob 30s ease-in-out infinite reverse;
+    pointer-events: none;
 }
 section > .container { position: relative; z-index: 1; }
-
-.section-title { font-family: 'Unbounded', sans-serif; font-size: 36px; text-align: center; margin-bottom: 12px; }
+.section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 12px; letter-spacing: -0.01em; }
 .section-sub { text-align: center; color: var(--text-soft); margin-bottom: 48px; }
 .mt-80 { margin-top: 100px; }
 
 /* ===== Grid ===== */
 .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .card {
-  background: var(--card); border-radius: 20px; overflow: hidden;
-  box-shadow: var(--shadow); transition: all 0.3s; cursor: pointer;
-  display: flex; flex-direction: column; position: relative;
+    background: var(--card); border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
+    display: flex; flex-direction: column; position: relative;
+    border: 1px solid rgba(235, 224, 240, 0.5);
 }
-.card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+.card:hover { transform: translateY(-10px) scale(1.02); box-shadow: var(--shadow-hover); }
 .card-img { aspect-ratio: 1; overflow: hidden; background: var(--bg-soft); position: relative; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .card:hover .card-img img { transform: scale(1.08); }
 .card-img-placeholder {
-  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-  font-size: 80px; background: linear-gradient(135deg, #f5eef8, #fce7f3);
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-size: 80px; background: linear-gradient(135deg, #f5eef8, #fce7f3);
 }
 .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-.card-name { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.card-name { font-family: var(--font-heading); font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
 .card-desc {
-  font-size: 13px; color: var(--text-soft); line-height: 1.5; flex: 1; margin-bottom: 14px;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    font-size: 14px; color: var(--text-soft); line-height: 1.6; flex: 1; margin-bottom: 14px;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
-.card-price { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px; color: var(--primary); }
-.card-price.soon {
-  font-size: 12px; font-weight: 600;
-  color: var(--text-soft); font-family: 'Inter', sans-serif;
-  background: var(--bg-soft); padding: 6px 12px;
-  border-radius: 100px; align-self: flex-start;
+
+/* Кнопка избранного в карточке */
+.btn-favorite {
+    width: 100%; padding: 12px; margin-top: 12px;
+    border: 2px solid var(--border); background: white;
+    border-radius: 12px; font-weight: 600; cursor: pointer;
+    transition: all 0.3s; font-size: 14px;
 }
-.card-price.soon.accent {
-  background: linear-gradient(135deg, rgba(155,89,182,0.15), rgba(233,30,135,0.15));
-  color: var(--accent);
+.btn-favorite:hover { border-color: var(--primary); background: var(--bg-soft); }
+.btn-favorite.active {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white; border-color: transparent;
 }
 
 /* ===== Kids list ===== */
 .list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
 .kid-item {
-  background: var(--card); padding: 14px 18px; border-radius: 12px;
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; border: 1px solid var(--border);
-  transition: all 0.2s;
+    background: var(--card); padding: 14px 18px; border-radius: 12px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; border: 1px solid var(--border);
+    transition: all 0.2s;
 }
 .kid-item::before { content: '🌱'; font-size: 16px; }
 .kid-item:hover { border-color: var(--primary); transform: translateX(4px); }
@@ -272,35 +284,64 @@ section > .container { position: relative; z-index: 1; }
 /* ===== Articles ===== */
 .articles-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
 .article-card {
-  background: var(--card); border-radius: 20px; padding: 28px;
-  box-shadow: var(--shadow); cursor: pointer; transition: all 0.3s;
-  display: flex; flex-direction: column; gap: 14px;
-  border: 1px solid transparent;
+    background: var(--card); border-radius: 20px; padding: 28px;
+    box-shadow: var(--shadow); cursor: pointer; transition: all 0.3s;
+    display: flex; flex-direction: column; gap: 14px;
+    border: 1px solid transparent;
 }
 .article-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
 .article-tag {
-  display: inline-block; padding: 4px 12px;
-  background: var(--bg-soft); color: var(--primary);
-  border-radius: 100px; font-size: 12px; font-weight: 600;
-  align-self: flex-start;
+    display: inline-block; padding: 4px 12px;
+    background: var(--bg-soft); color: var(--primary);
+    border-radius: 100px; font-size: 12px; font-weight: 600;
+    align-self: flex-start;
 }
-.article-card h3 { font-family: 'Unbounded', sans-serif; font-size: 19px; line-height: 1.3; }
+.article-card h3 { font-family: var(--font-heading); font-size: 20px; line-height: 1.35; font-weight: 600; }
 .article-card p { color: var(--text-soft); font-size: 14px; flex: 1; }
 .article-more { color: var(--primary); font-weight: 600; font-size: 14px; }
+
+/* ===== Reviews ===== */
+.reviews-grid {
+    display: grid; gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.review-card {
+    background: var(--card); padding: 28px; border-radius: 20px;
+    box-shadow: var(--shadow); transition: all 0.3s;
+    border: 1px solid var(--border);
+}
+.review-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
+}
+.review-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 16px;
+}
+.review-avatar {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-heading); font-weight: 700; font-size: 20px;
+}
+.review-header h4 { font-family: var(--font-heading); font-size: 16px; margin-bottom: 4px; }
+.review-city { font-size: 13px; color: var(--text-soft); }
+.review-stars { font-size: 18px; margin-bottom: 12px; letter-spacing: 2px; }
+.review-text { color: var(--text-soft); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
+.review-date { font-size: 12px; color: var(--text-soft); opacity: 0.7; }
 
 /* ===== Contacts ===== */
 .contacts-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .contact-card {
-  background: var(--card); padding: 28px; border-radius: 20px;
-  text-align: center; box-shadow: var(--shadow);
-  transition: all 0.3s; text-decoration: none; color: var(--text);
-  display: block;
+    background: var(--card); padding: 28px; border-radius: 20px;
+    text-align: center; box-shadow: var(--shadow);
+    transition: all 0.3s; text-decoration: none; color: var(--text);
+    display: block;
 }
 .contact-card.wide { grid-column: span 1; }
 .contact-card.link { cursor: pointer; }
 .contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 .c-icon { font-size: 36px; margin-bottom: 14px; }
-.contact-card h3 { font-family: 'Unbounded', sans-serif; font-size: 17px; margin-bottom: 6px; }
+.contact-card h3 { font-family: var(--font-heading); font-size: 17px; margin-bottom: 6px; }
 .contact-card p { color: var(--text-soft); font-size: 14px; }
 .link-arrow { display: inline-block; margin-top: 10px; color: var(--primary); font-weight: 600; font-size: 14px; }
 
@@ -309,403 +350,115 @@ section > .container { position: relative; z-index: 1; }
 .modal.open { display: block; }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(45, 36, 56, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .modal-content {
-  position: relative; max-width: 750px; margin: 5vh auto;
-  background: var(--card); border-radius: 24px; padding: 40px;
-  max-height: 90vh; overflow-y: auto;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-  animation: modalIn 0.3s ease;
+    position: relative; max-width: 750px; margin: 5vh auto;
+    background: var(--card); border-radius: 24px; padding: 40px;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+    animation: modalIn 0.3s ease;
 }
 @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .modal-close {
-  position: absolute; top: 16px; right: 16px;
-  width: 40px; height: 40px; border-radius: 50%;
-  border: none; background: var(--bg-soft); cursor: pointer;
-  font-size: 18px; color: var(--text); z-index: 2;
-  transition: all 0.2s;
+    position: absolute; top: 16px; right: 16px;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: none; background: var(--bg-soft); cursor: pointer;
+    font-size: 18px; color: var(--text); z-index: 2;
+    transition: all 0.2s;
 }
 .modal-close:hover { background: var(--primary); color: white; }
-.modal h2 { font-family: 'Unbounded', sans-serif; font-size: 26px; margin-bottom: 16px; padding-right: 40px; }
+.modal h2 { font-family: var(--font-heading); font-size: 26px; margin-bottom: 16px; padding-right: 40px; }
 .modal-text { white-space: pre-line; color: var(--text-soft); font-size: 15px; line-height: 1.7; }
 .modal-img { width: 100%; border-radius: 16px; margin-bottom: 20px; max-height: 480px; object-fit: cover; display: block; }
 .modal-gallery { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
 .modal-gallery img {
-  width: 100%; border-radius: 16px;
-  max-height: 480px; object-fit: cover; display: block;
-  cursor: zoom-in; transition: transform 0.3s;
+    width: 100%; border-radius: 16px;
+    max-height: 480px; object-fit: cover; display: block;
+    cursor: zoom-in; transition: transform 0.3s;
 }
 .modal-gallery img:hover { transform: scale(1.01); }
 
-.modal-price {
-  display: inline-block; margin-top: 20px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: white; border-radius: 14px;
-  font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 22px;
-  box-shadow: 0 8px 24px rgba(155, 89, 182, 0.3);
+/* Кнопка избранного в модалке */
+.btn-favorite-modal {
+    width: 100%; padding: 14px; margin-top: 20px;
+    border: 2px solid var(--border); background: white;
+    border-radius: 14px; font-weight: 600; cursor: pointer;
+    transition: all 0.3s; font-size: 15px;
 }
-.modal-price.soon {
-  background: var(--bg-soft); color: var(--text-soft);
-  font-size: 14px; font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  box-shadow: none;
-}
-.modal-price.soon.accent {
-  background: linear-gradient(135deg, rgba(155,89,182,0.15), rgba(233,30,135,0.15));
-  color: var(--accent);
+.btn-favorite-modal:hover { border-color: var(--primary); background: var(--bg-soft); }
+.btn-favorite-modal.active {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white; border-color: transparent;
 }
 
 /* ===== Footer ===== */
 .footer {
-  background: var(--text);
-  color: rgba(255,255,255,0.7);
-  padding: 30px 0;
-  text-align: center;
-  font-size: 14px;
-  margin-top: 80px;
-}
-
-/* ===== Адаптивность ===== */
-@media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .hero p { margin: 0 auto 32px; }
-  .hero-btns { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .hero-img { height: 380px; }
-  .bubble { width: 280px; height: 280px; }
-  .bubble-bg { width: 320px; height: 320px; }
-  .features { grid-template-columns: 1fr; }
-  .contact-card.wide { grid-column: span 1; }
-}
-
-@media (max-width: 480px) {
-  .hero-img { height: 340px; }
-  .bubble { width: 240px; height: 240px; }
-  .petal { display: none; }
-}
-/* ===== Адаптивность для телефонов (исправляем вид) ===== */
-@media (max-width: 600px) {
-  /* 1. Исправляем логотип и меню */
-  .logo {
-    font-size: 16px; /* Уменьшаем шрифт */
-    max-width: 140px; /* Ограничиваем ширину, чтобы не ломалась строка */
-    line-height: 1.2;
-    white-space: normal; /* Разрешаем перенос, но красиво */
-  }
-  
-  .nav-wrap {
-    height: 60px; /* Чуть уменьшаем высоту шапки */
-    gap: 8px; /* Добавляем отступ между логотипом и меню */
-  }
-  
-  .nav-link {
-    padding: 6px 10px; /* Уменьшаем отступы кнопок меню */
-    font-size: 13px;   /* Уменьшаем шрифт меню */
-  }
-
-  /* 2. Исправляем карточки (Статьи и Контакты) */
-  .article-card, .contact-card, .feature-card {
-    padding: 20px !important; /* Добавляем воздух внутрь карточек */
-    margin-bottom: 12px;
-  }
-  
-  /* 3. Исправляем заголовки (чтобы слова не ломались уродливо) */
-  .article-card h3 {
-    font-size: 18px;
-    word-break: break-word; /* Разрешаем перенос слов, но аккуратно */
-  }
-
-  /* 4. Убираем лишние отступы в контейнерах */
-  .container {
-    padding: 0 16px; /* Чуть уменьшаем отступы по бокам экрана */
-  }
-
-  /* 5. Сетка контактов и статей */
-  .articles-grid, .grid, .contacts-grid {
-    grid-template-columns: 1fr; /* Всё в одну колонку */
-    gap: 16px; /* Отступ между карточками */
-  }
-
-  /* 6. Скрываем лишние декорации на телефоне, если они мешают */
-  .petal { display: none; }
-}
-/* ===== ИСПРАВЛЕНИЕ ДЛЯ ТЕЛЕФОНА: растягиваем контент ===== */
-@media (max-width: 600px) {
-  
-  /* 1. Заставляем контейнер занимать всю ширину */
-  .container {
-    width: 100% !important;       /* Принудительно 100% ширины */
-    max-width: 100% !important;   /* Убираем ограничение в 1200px */
-    padding-left: 20px !important;  /* Добавляем отступ слева */
-    padding-right: 20px !important; /* Добавляем отступ справа */
-    box-sizing: border-box !important; /* Чтобы padding не ломал ширину */
-  }
-
-  /* 2. Исправляем Hero-блок (главный баннер) */
-  .hero-inner {
-    display: flex;
-    flex-direction: column;  /* Элементы друг под другом */
-    align-items: stretch;    /* Растягиваем на всю ширину */
-    width: 100%;
-    padding: 0;              /* Убираем лишние отступы */
-  }
-
-  .hero-text {
-    width: 100%;             /* Текст на всю ширину */
-    padding: 0;
-  }
-
-  .hero-img {
-    width: 100%;             /* Картинка на всю ширину */
-    display: flex;
-    justify-content: center; /* Центрируем круг с цветами */
-    margin-top: 20px;
-  }
-
-  .bubble {
-    width: 260px;            /* Размер круга на телефоне */
-    height: 260px;
-  }
-
-  /* 3. Исправляем кнопки */
-  .hero-btns {
-    display: flex;
-    flex-direction: column;  /* Кнопки друг под другом */
-    align-items: stretch;    /* Растягиваем на всю ширину */
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .btn {
-    text-align: center;      /* Текст кнопки по центру */
-    width: 100%;             /* Кнопка на всю ширину */
-  }
-
-  /* 4. Исправляем цифры (20+, 33, 16) */
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки для цифр */
-    gap: 16px;
-    width: 100%;
-    margin: 20px 0;
-  }
-  .hero-stats .stat:last-child {
-    grid-column: 1 / -1;     /* Третья цифра (16) на всю ширину */
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: 30px 0;
     text-align: center;
-  }
+    font-size: 14px;
+    margin-top: 80px;
 }
-/* ===== ФИНАЛЬНОЕ ВЫРАВНИВАНИЕ ДЛЯ ТЕЛЕФОНА ===== */
-@media (max-width: 600px) {
-  
-  /* Заставляем весь контент внутри hero быть по центру */
-  .hero-text, .hero-stats, .hero-btns {
-    text-align: center !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-  }
 
-  /* Выравниваем заголовок и абзац */
-  .hero h1, .hero p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 100% !important;
-  }
-
-  /* Цифры (20+, 33, 16) — тоже по центру */
-  .hero-stats {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px;
-  }
-
-  .stat {
-    text-align: center !important;
-  }
-
-  /* Картинка (круг с цветами) — по центру */
-  .hero-img {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    margin: 20px auto !important;
-  }
-
-  .bubble {
-    margin: 0 auto !important; /* Центрируем сам круг */
-  }
-
-  /* Кнопки — по центру и на всю ширину */
-  .hero-btns {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
-  .btn {
-    width: 100% !important;
-    max-width: 320px !important; /* Оптимальная ширина кнопки */
-    margin: 0 auto !important;
-  }
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
+@media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero p { margin: 0 auto 32px; }
+    .hero-btns { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .hero-img { height: 380px; }
+    .bubble { width: 280px; height: 280px; }
+    .bubble-bg { width: 320px; height: 320px; }
+    .features { grid-template-columns: 1fr; }
+    .contact-card.wide { grid-column: span 1; }
 }
-/* ===== ЖЁСТКОЕ ЦЕНТРИРОВАНИЕ ДЛЯ ТЕЛЕФОНА (ПОСЛЕДНЯЯ ИНСТАНЦИЯ) ===== */
+
 @media (max-width: 600px) {
-  
-  /* 1. Центрируем весь Hero-блок */
-  .hero-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
-  }
+    /* Шапка */
+    .nav-wrap { height: 60px; }
+    .logo { font-size: 15px; max-width: 150px; }
+    .nav-link { padding: 8px 12px; font-size: 13px; }
+    
+    /* Hero */
+    .hero { padding: 40px 0 60px; }
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 15px; }
+    .hero-img { height: 300px; }
+    .bubble { width: 220px; height: 220px; }
+    .bubble-bg { width: 260px; height: 260px; }
+    .petal { display: none; }
+    .hero-stats { flex-direction: column; gap: 12px; }
+    .stat b { font-size: 24px; }
+    
+    /* Кнопки */
+    .btn { padding: 14px 24px; font-size: 14px; width: 100%; max-width: 300px; }
+    .hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+    
+    /* Карточки */
+    .card, .article-card, .review-card, .feature-card, .contact-card {
+        padding: 20px; border-radius: 16px;
+    }
+    .card-name { font-size: 16px; }
+    .card-desc { font-size: 13px; }
+    
+    /* Секции */
+    section { padding: 50px 0; }
+    .section-title { font-size: 24px; }
+    .section-sub { font-size: 14px; margin-bottom: 32px; }
+    
+    /* Контейнер */
+    .container { padding: 0 16px; }
+    
+    /* Модалка */
+    .modal-content { margin: 2vh 12px; padding: 24px; max-height: 95vh; }
+    .modal h2 { font-size: 20px; }
+    .modal-text { font-size: 14px; }
+    
+    /* Футер */
+    .footer { padding: 20px 0; font-size: 13px; }
+}
 
-  /* 2. Текст (заголовок, абзац) — строго по центру */
-  .hero-text, .hero h1, .hero p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* 3. Кнопки — широкие, но по центру */
-  .hero-btns {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-
-  .btn {
-    width: 100% !important;
-    max-width: 340px !important; /* Оптимальная ширина для пальца */
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-
-  /* 4. Цифры (20+, 33, 16) — сеткой по центру */
-  .hero-stats {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 340px !important;
-    margin: 20px auto !important;
-    justify-items: center !important; /* Центрируем содержимое ячеек */
-  }
-
-  .hero-stats .stat:last-child {
-    grid-column: 1 / -1 !important; /* 16 на всю ширину */
-    text-align: center !important;
-  }
-
-  .stat b, .stat span {
-    display: block !important;
-    text-align: center !important;
-  }
-
-  /* 5. Картинка (круг с цветами) — по центру */
-  .hero-img {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    margin: 30px auto 0 !important;
-  }
-
-  .bubble {
-    margin: 0 auto !important;
-  }
-
-  /* 6. Логотип — тоже по центру или слева (на ваше усмотрение) */
-  .nav-wrap {
-    justify-content: space-between !important;
-  }
-  
-  .logo {
-    text-align: left !important; /* Логотип оставляем слева */
-  }
-}/* ===== ЖЁСТКОЕ ЦЕНТРИРОВАНИЕ ДЛЯ ТЕЛЕФОНА (ПОСЛЕДНЯЯ ИНСТАНЦИЯ) ===== */
-@media (max-width: 600px) {
-  
-  /* 1. Центрируем весь Hero-блок */
-  .hero-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
-  }
-
-  /* 2. Текст (заголовок, абзац) — строго по центру */
-  .hero-text, .hero h1, .hero p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* 3. Кнопки — широкие, но по центру */
-  .hero-btns {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-
-  .btn {
-    width: 100% !important;
-    max-width: 340px !important; /* Оптимальная ширина для пальца */
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-
-  /* 4. Цифры (20+, 33, 16) — сеткой по центру */
-  .hero-stats {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 340px !important;
-    margin: 20px auto !important;
-    justify-items: center !important; /* Центрируем содержимое ячеек */
-  }
-
-  .hero-stats .stat:last-child {
-    grid-column: 1 / -1 !important; /* 16 на всю ширину */
-    text-align: center !important;
-  }
-
-  .stat b, .stat span {
-    display: block !important;
-    text-align: center !important;
-  }
-
-  /* 5. Картинка (круг с цветами) — по центру */
-  .hero-img {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    margin: 30px auto 0 !important;
-  }
-
-  .bubble {
-    margin: 0 auto !important;
-  }
-
-  /* 6. Логотип — тоже по центру или слева (на ваше усмотрение) */
-  .nav-wrap {
-    justify-content: space-between !important;
-  }
-  
-  .logo {
-    text-align: left !important; /* Логотип оставляем слева */
-  }
+@media (max-width: 400px) {
+    .hero h1 { font-size: 24px; }
+    .bubble { width: 180px; height: 180px; }
+    .logo { font-size: 14px; }
 }

@@ -1,146 +1,159 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Фиалковая страсть — коллекция мини-фиалок Натальи Тыриной</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фиалковая страсть — коллекция мини-фиалок Натальи Тыриной</title>
+    <!-- Подключаем современные шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="header">
-    <div class="container nav-wrap">
-      <a href="#home" class="logo" data-tab="home">🌸Фиалковая <span>страсть</span></a>
-      <nav class="nav" id="nav">
-        <a href="#home" class="nav-link active" data-tab="home">Главная</a>
-        <a href="#collection" class="nav-link" data-tab="collection">Коллекция</a>
-        <a href="#articles" class="nav-link" data-tab="articles">Статьи</a>
-        <a href="#contacts" class="nav-link" data-tab="contacts">Контакты</a>
-      </nav>
-      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
-    </div>
-  </header>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container nav-wrap">
+            <a href="#home" class="logo" data-tab="home">🌸<span>Фиалковая</span> страсть</a>
+            <nav class="nav" id="nav">
+                <a href="#home" class="nav-link active" data-tab="home">Главная</a>
+                <a href="#collection" class="nav-link" data-tab="collection">Коллекция</a>
+                <a href="#articles" class="nav-link" data-tab="articles">Статьи</a>
+                <a href="#reviews" class="nav-link" data-tab="reviews">Отзывы</a>
+                <a href="#contacts" class="nav-link" data-tab="contacts">Контакты</a>
+            </nav>
+            <button class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
 
-  <main>
-    <!-- ГЛАВНАЯ -->
+    <!-- TAB: HOME -->
     <section id="home" class="tab active">
-      <div class="hero">
-        <div class="container hero-inner">
-          <div class="hero-text">
-            <span class="badge">только мини-фиалки 🌿</span>
-            <h1>Коллекция <br><span class="grad">Натальи Тыриной</span></h1>
-            <p>Добро пожаловать в мир миниатюрных фиалок! Здесь вы найдёте сорта из моей личной коллекции, которые я готова предложить в виде листовых черенков, а также подрощенные детки и стартеры. Все фотографии на сайте сделаны мной. Заходите в каталог, читайте статьи по уходу — и пусть фиалковая страсть захватит и вас!</p>
-            <div class="hero-btns">
-              <a href="#collection" class="btn btn-primary" data-tab="collection">Смотреть коллекцию</a>
-              <a href="#contacts" class="btn btn-ghost" data-tab="contacts">Связаться</a>
+        <div class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <span class="badge">только мини-фиалки 🌿</span>
+                    <h1>Коллекция <br><span class="grad">Натальи Тыриной</span></h1>
+                    <p>Добро пожаловать в мир миниатюрных фиалок! Здесь вы найдёте сорта из моей личной коллекции, которые я готова предложить в виде листовых черенков, а также подрощенные детки и стартеры. Все фотографии на сайте сделаны мной.</p>
+                    <div class="hero-btns">
+                        <a href="#collection" class="btn btn-primary" data-tab="collection">Смотреть коллекцию</a>
+                        <a href="#contacts" class="btn btn-ghost" data-tab="contacts">Связаться</a>
+                    </div>
+                    <div class="hero-stats" id="heroStats"></div>
+                </div>
+                <div class="hero-img">
+                    <div class="bubble-bg"></div>
+                    <div class="bubble">
+                        <img src="images/hero-flower.jpg" alt="Мини-фиалка" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="bubble-fallback">🌸</div>
+                    </div>
+                    <div class="petal petal-1">🌸</div>
+                    <div class="petal petal-2">🌿</div>
+                </div>
             </div>
-            <div class="hero-stats" id="heroStats"></div>
-          </div>
+        </div>
 
-          <div class="hero-img">
-            <div class="bubble-bg"></div>
-            <div class="bubble">
-              <img src="images/Hunters_Coral_Garess.jpg" alt="Фиалка"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="bubble-fallback">🌸</div>
+        <div class="container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="f-icon">💜</div>
+                    <h3>Только мини</h3>
+                    <p>Специализируюсь исключительно на миниатюрных сортах</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">✨</div>
+                    <h3>Авторский подбор</h3>
+                    <p>Редкие и популярные сорта в одной коллекции</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">📦</div>
+                    <h3>Доставка</h3>
+                    <p>Отправляю через Wildberries по всей России</p>
+                </div>
             </div>
-            <div class="petal petal-1">🌿</div>
-            <div class="petal petal-2">✨</div>
-          </div>
-
         </div>
-      </div>
-
-      <div class="container features">
-        <div class="feature-card">
-          <div class="f-icon">🌱</div>
-          <h3>Только мини</h3>
-          <p>Специализируюсь исключительно на миниатюрных сортах</p>
-        </div>
-        <div class="feature-card">
-          <div class="f-icon">💜</div>
-          <h3>Авторский подбор</h3>
-          <p>Редкие и популярные сорта в одной коллекции</p>
-        </div>
-        <div class="feature-card">
-          <div class="f-icon">📦</div>
-          <h3>Доставка</h3>
-          <p>Отправляю через Wildberries по всей России</p>
-        </div>
-      </div>
     </section>
 
-    <!-- КОЛЛЕКЦИЯ -->
+    <!-- TAB: COLLECTION -->
     <section id="collection" class="tab">
-      <div class="container">
-        <h2 class="section-title">Коллекция мини-фиалок</h2>
-        <p class="section-sub">Взрослые цветущие розетки -🌿листочки🌿</p>
-        <div class="grid" id="violetsGrid"></div>
-
-        <h2 class="section-title mt-80">Детки и стартёры в наличии</h2>
-        <p class="section-sub">Цена от 250 до 350 ₽ — зависит от сорта и размера</p>
-        <div class="list-grid" id="kidsList"></div>
-      </div>
-    </section>
-
-    <!-- СТАТЬИ -->
-    <section id="articles" class="tab">
-      <div class="container">
-        <h2 class="section-title">Полезные статьи</h2>
-        <p class="section-sub">Мой опыт выращивания мини-фиалок</p>
-        <div class="articles-grid" id="articlesGrid"></div>
-      </div>
-    </section>
-
-    <!-- КОНТАКТЫ -->
-    <section id="contacts" class="tab">
-      <div class="container">
-        <h2 class="section-title">Контакты</h2>
-        <p class="section-sub">Свяжитесь со мной любым удобным способом</p>
-        <div class="contacts-grid">
-          <div class="contact-card">
-            <div class="c-icon">👩</div>
-            <h3>Наталья Тырина</h3>
-            <p>Коллекционер мини-фиалок</p>
-          </div>
-          <div class="contact-card">
-            <div class="c-icon">📍</div>
-            <h3>Город</h3>
-            <p>Рязань</p>
-          </div>
-          <a class="contact-card link" href="https://vk.ru/fialokovaya_strast" target="_blank" rel="noopener">
-            <div class="c-icon">💬</div>
-            <h3>ВКонтакте</h3>
-            <p>Фиалковая страсть</p>
-            <span class="link-arrow">Перейти →</span>
-          </a>
-          <div class="contact-card wide">
-            <div class="c-icon">📦</div>
-            <h3>Доставка</h3>
-            <p>Отправляю через <b>Wildberries</b> по всей России. Растения упакованы надёжно — приезжают в целости 💚</p>
-          </div>
+        <div class="container">
+            <h2 class="section-title">Коллекция мини-фиалок</h2>
+            <p class="section-sub">Взрослые цветущие розетки -🌿листочки🌿</p>
+            <div class="grid" id="violetsGrid"></div>
+            
+            <h2 class="section-title mt-80">Детки и стартёры</h2>
+            <p class="section-sub">В наличии</p>
+            <div class="list-grid" id="kidsList"></div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- Модалка -->
-  <div class="modal" id="modal">
-    <div class="modal-backdrop"></div>
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose" aria-label="Закрыть">✕</button>
-      <div id="modalBody"></div>
+    <!-- TAB: ARTICLES -->
+    <section id="articles" class="tab">
+        <div class="container">
+            <h2 class="section-title">Полезные статьи</h2>
+            <p class="section-sub">Мой опыт выращивания мини-фиалок</p>
+            <div class="articles-grid" id="articlesGrid"></div>
+        </div>
+    </section>
+
+    <!-- TAB: REVIEWS -->
+    <section id="reviews" class="tab">
+        <div class="container">
+            <h2 class="section-title">Отзывы покупателей 💬</h2>
+            <p class="section-sub">Что говорят о моей коллекции</p>
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </div>
+    </section>
+
+    <!-- TAB: CONTACTS -->
+    <section id="contacts" class="tab">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <p class="section-sub">Свяжитесь со мной любым удобным способом</p>
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="c-icon">👩</div>
+                    <h3>Наталья Тырина</h3>
+                    <p>Коллекционер мини-фиалок</p>
+                </div>
+                <div class="contact-card">
+                    <div class="c-icon">📍</div>
+                    <h3>Город</h3>
+                    <p>Рязань</p>
+                </div>
+                <a href="https://vk.com/fialkovaya_strast" target="_blank" class="contact-card link">
+                    <div class="c-icon">💬</div>
+                    <h3>ВКонтакте</h3>
+                    <p>Фиалковая страсть</p>
+                    <span class="link-arrow">Перейти →</span>
+                </a>
+                <div class="contact-card wide">
+                    <div class="c-icon">📦</div>
+                    <h3>Доставка</h3>
+                    <p>Отправляю через Wildberries по всей России. Растения упакованы надёжно — приезжают в целости 💚</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div id="modalBody"></div>
+        </div>
     </div>
-  </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 Фиалковая страсть · Коллекция Натальи Тыриной 🌸</p>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            © 2025 Фиалковая страсть · Коллекция Натальи Тыриной 🌸
+        </div>
+    </footer>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
