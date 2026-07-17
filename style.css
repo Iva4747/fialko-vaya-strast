@@ -462,3 +462,30 @@ section > .container { position: relative; z-index: 1; }
     .bubble { width: 180px; height: 180px; }
     .logo { font-size: 14px; }
 }
+/* ===== Слайдер фото в главном кружке ===== */
+.bubble-slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeSlide 12s infinite;
+}
+
+/* Задержка для каждого фото, чтобы они менялись по очереди */
+.bubble-slide:nth-child(1) { animation-delay: 0s; }
+.bubble-slide:nth-child(2) { animation-delay: 4s; }
+.bubble-slide:nth-child(3) { animation-delay: 8s; }
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: scale(1); }
+    8% { opacity: 1; transform: scale(1.05); } /* Плавное появление и лёгкое увеличение */
+    33% { opacity: 1; transform: scale(1.05); }
+    41% { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; }
+}
+
+/* Если хотя бы одно фото загрузилось, скрываем эмодзи-заглушку */
+.bubble-slide:first-child {
+    /* Этот стиль гарантирует, что эмодзи не будет мешать */
+}
