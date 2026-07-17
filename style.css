@@ -1,17 +1,17 @@
 /* ===== RESET & BASE ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-    --bg: #fdfaff;
-    --bg-soft: #f5eef8;
-    --primary: #9b59b6;
-    --primary-dark: #7a3f96;
-    --accent: #e91e87;
-    --text: #2d2438;
-    --text-soft: #6b5b7d;
-    --border: #ebe0f0;
-    --card: #ffffff;
-    --shadow: 0 10px 40px rgba(155, 89, 182, 0.08);
-    --shadow-hover: 0 20px 60px rgba(155, 89, 182, 0.18);
+--bg: #FAF8F5;              /* Тёплый кремовый фон */
+    --bg-soft: #F0EBE3;         /* Мягкий бежевый */
+    --primary: #A89FC4;         /* Приглушённая лаванда */
+    --primary-dark: #8B82A8;    /* Более тёмная лаванда */
+    --accent: #D4A8B8;          /* Пыльная роза */
+    --text: #4A4458;            /* Тёплый серо-фиолетовый */
+    --text-soft: #7A7289;       /* Мягкий серый для текста */
+    --border: #E8E0D8;          /* Тёплый бежевый для рамок */
+    --card: #FFFFFF;            /* Белый для карточек */
+    --shadow: 0 10px 40px rgba(168, 159, 196, 0.1);
+    --shadow-hover: 0 20px 60px rgba(168, 159, 196, 0.2);
     
     /* Шрифты */
     --font-heading: 'Unbounded', sans-serif;
